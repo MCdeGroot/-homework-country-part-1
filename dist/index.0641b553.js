@@ -564,19 +564,17 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 const countryList = document.getElementById("countries");
 //verwijzing naar error
 const errorMessage = document.getElementById("error");
-// vervolgens vullen.
 async function fetchCountries() {
     try {
         const response = await (0, _axiosDefault.default).get("https://restcountries.com/v3.1/all");
-        // maken een variable aan waarin we de response kunnen sorteren
         const countries = response.data;
-        countries.map((country)=>{});
         console.log(countries);
-        // eerst willen we de array met landen sorteren op
-        countryList.innerHTML = `
-        <li>${response.data[1].name.common}</li>
-        `;
-    // op bovenstaande manier kunnen we uit een endpoint data weergeven in een applicatie//
+        countries.sort((a, b)=>{
+            return a.population - b.population;
+        });
+        mapCountryListInnerHTML(countries);
+        const test = response.data.region;
+        console.log(test);
     } catch (error) {
         //errors afvangen in de consol
         console.error(error);
@@ -586,6 +584,36 @@ async function fetchCountries() {
     }
 }
 fetchCountries();
+function mapCountryListInnerHTML(array) {
+    array.map((country)=>{
+        countryList.innerHTML += `
+
+<li>
+        <img class="flag" src="${country.flags.png}" alt="Vlag van ${country.name.common}">
+        <span class="${setRegionColor(country.region)}">${country.name.common}</span>
+        <p>Has a population of ${country.population} people</p>
+</li>
+       `;
+    });
+}
+function setRegionColor(region) {
+    switch(region){
+        case "Africa":
+            return "blue";
+        case "Americas":
+            return "green";
+        case "Antarctic":
+            return "white";
+        case "Asia":
+            return "red";
+        case "Europe":
+            return "yellow";
+        case "Oceania":
+            return "purple";
+        default:
+            return "default";
+    }
+}
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

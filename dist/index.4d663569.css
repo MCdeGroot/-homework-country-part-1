@@ -1,3 +1,80 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  flex-direction: column;
+  flex-basis: 1000px;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+  display: flex;
+}
+
+h1 {
+  font-size: 4rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+span {
+  font-size: 18px;
+}
+
+.country-container {
+  columns: 3;
+  column-width: 475px;
+  background-color: #f5f9e9;
+  border: 1px solid #c2c1a5;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.world-map {
+  width: 1000px;
+}
+
+ul {
+  max-width: 1500px;
+  list-style: none;
+}
+
+li {
+  min-height: 75px;
+  padding: 10px;
+  overflow: auto;
+}
+
+.flag {
+  width: 25px;
+  display: inline-block;
+}
+
+.blue {
+  color: #4343b6;
+}
+
+.green {
+  color: #30964f;
+}
+
+.white {
+  color: #bcbcc2;
+}
+
+.red {
+  color: #a21b20;
+}
+
+.yellow {
+  color: #ecec15;
+}
+
+.purple {
+  color: #7c0c7c;
+}
 
 /*# sourceMappingURL=index.4d663569.css.map */
